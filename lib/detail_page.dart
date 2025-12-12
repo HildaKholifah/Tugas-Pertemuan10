@@ -14,7 +14,13 @@ class DetailPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(18.0),
-          child: Column(children: [headerText(context)]),
+          child: Column(
+            children: [
+              headerText(context),
+              SizedBox(height: 20),
+              pokemonContainer(),
+            ],
+          ),
         ),
       ),
     );
@@ -31,23 +37,36 @@ class DetailPage extends StatelessWidget {
             color: Colors.deepPurple,
           ),
         ),
-        Column(
-          children: [
-            Text(
-              pokemon.name,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.deepPurple,
+
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                pokemon.name,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepPurple,
+                ),
               ),
-            ),
-            Text(
-              pokemon.id.toString().padLeft(3, "0"),
-              style: TextStyle(fontSize: 14, color: Colors.deepPurpleAccent),
-            ),
-          ],
+              Text(
+                pokemon.id.toString().padLeft(3, "0"),
+                style: TextStyle(fontSize: 14, color: Colors.deepPurpleAccent),
+              ),
+            ],
+          ),
         ),
       ],
+    );
+  }
+
+  Widget pokemonContainer() {
+    return Container(
+      padding: EdgeInsets.all(18.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        color: Colors.grey,
+      ),
     );
   }
 }
