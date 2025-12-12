@@ -25,7 +25,7 @@ class PokemonCardWidget extends StatelessWidget {
               ? Colors.greenAccent
               : type == "Fire"
               ? Colors.redAccent
-              : Colors.orangeAccent,
+              : Colors.blueAccent,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(

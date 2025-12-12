@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:pokemonapp/detail_page.dart';
 import 'package:pokemonapp/model/dummy_data.dart';
@@ -94,7 +92,9 @@ class HomePage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => DetailPage(pokemon: dummyPokemonList[index]),
+                  builder: (_) => DetailPage(
+                    pokemon: dummyPokemonList[index]
+                  ),
                 ),
               );
             },
