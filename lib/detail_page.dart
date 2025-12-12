@@ -67,6 +67,12 @@ class DetailPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
         color: Colors.grey,
       ),
+      child: Image.network(
+        pokemon.imageUrl,
+        fit: BoxFit.contain,
+        width: 300,
+        height: 400,
+      ),
     );
   }
 }
