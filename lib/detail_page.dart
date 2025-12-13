@@ -61,6 +61,19 @@ class DetailPage extends StatelessWidget {
     );
   }
 
+  Color getColorByType(String type) {
+    switch (type) {
+      case "Fire":
+        return Colors.redAccent;
+      case "Water":
+        return Colors.blueAccent;
+      case "Grass":
+        return Colors.greenAccent;
+      default:
+        return Colors.grey;
+    }
+  }
+
   Widget pokemonContainer() {
     return Container(
       padding: EdgeInsets.all(18.0),
