@@ -18,6 +18,8 @@ class DetailPage extends StatelessWidget {
               headerText(context),
               SizedBox(height: 20),
               pokemonContainer(),
+              SizedBox(height: 20),
+              menu(),
             ],
           ),
         ),
@@ -71,6 +73,35 @@ class DetailPage extends StatelessWidget {
         fit: BoxFit.contain,
         width: 300,
         height: 400,
+      ),
+    );
+  }
+
+  Widget menu() {
+    final tabs = ["Forms", "Detail", "Types", "Stats", "Weakness"];
+
+    return SizedBox(
+      height: 40,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        children: tabs.map((tab) {
+          final isActive = tab == tabs.first;
+
+          return Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Text(
+              tab,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
+                color: isActive
+                    ? Colors.deepPurple
+                    : const Color.fromARGB(255, 173, 145, 223),
+              ),
+            ),
+          );
+        }).toList(),
       ),
     );
   }
