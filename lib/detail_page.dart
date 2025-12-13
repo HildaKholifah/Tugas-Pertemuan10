@@ -79,7 +79,7 @@ class DetailPage extends StatelessWidget {
       padding: EdgeInsets.all(18.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        color: Colors.grey,
+        color: getColorByType(pokemon.type),
       ),
       child: Image.network(
         pokemon.imageUrl,
