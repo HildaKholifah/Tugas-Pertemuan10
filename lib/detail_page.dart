@@ -64,11 +64,11 @@ class DetailPage extends StatelessWidget {
   Color getColorByType(String type) {
     switch (type) {
       case "Fire":
-        return Colors.redAccent;
+        return Colors.red;
       case "Water":
-        return Colors.blueAccent;
+        return Colors.blue;
       case "Grass":
-        return Colors.greenAccent;
+        return Colors.green;
       default:
         return Colors.grey;
     }

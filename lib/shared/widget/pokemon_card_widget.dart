@@ -21,10 +21,10 @@ class PokemonCardWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: type == "Grass"
-              ? Colors.greenAccent
+              ? Colors.green
               : type == "Fire"
-              ? Colors.redAccent
-              : Colors.blueAccent,
+              ? Colors.red
+              : Colors.blue,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
