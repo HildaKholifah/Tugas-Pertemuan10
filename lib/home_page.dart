@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:pokemonapp/detail_page.dart';
-import 'package:pokemonapp/model/dummy_data.dart';
+import 'package:pokemonapp/model/pokemon.dart';
+import 'package:pokemonapp/service/pokemon_service.dart';
 import 'package:pokemonapp/shared/widget/pokemon_card_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final pokemonService = PokemonService();
+  PokemonResponseModel? pokemonResponseModel;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> LoadPokemon() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +36,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
               searchBar(searchName),
               SizedBox(height: 20),
-              listPokemon(),
+              listPokemon(pokemonResponseModel!),
             ],
           ),
         ),
@@ -76,7 +92,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget listPokemon() {
+  Widget listPokemon(PokemonResponseModel pokemon) {
     return Expanded(
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -85,22 +101,20 @@ class HomePage extends StatelessWidget {
           crossAxisSpacing: 10,
           mainAxisSpacing: 8,
         ),
-        itemCount: dummyPokemonList.length,
+        itemCount: pokemon.pokemon!.length,
         itemBuilder: (context, index) {
           return PokemonCardWidget(
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => DetailPage(
-                    pokemon: dummyPokemonList[index]
-                  ),
+                  builder: (_) => DetailPage(pokemon: pokemon.pokemon[index]),
                 ),
               );
             },
-            imageUrl: dummyPokemonList[index].imageUrl,
-            name: dummyPokemonList[index].name,
-            type: dummyPokemonList[index].type,
+            imageUrl: pokemon.pokemon[index].img,
+            name: pokemon.pokemon[index].name,
+            type: pokemon.pokemon[index].num,
           );
         },
       ),
